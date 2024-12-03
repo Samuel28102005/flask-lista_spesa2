@@ -9,7 +9,7 @@
 </head>
 <style>
     body{
-        background-color: rgb(0, 0, 255);
+        background-color: burlywood;
     }
     .card-title{
         color: blue;
@@ -18,11 +18,11 @@
     }
 
     .card{
-        width: 50%;
+        width: 70%;
         margin-left: auto; 
         margin-right: auto; 
         margin-top: 15%; 
-        border: 2px solid rgb(255, 6, 6);
+        border: 2px solid black;
     }
 
 
@@ -40,11 +40,11 @@
             </form>
           </p>
           <p class="card-text">
-            {% if lista_spesa %} <!--utilizziamo la condizione  per verificare se nella lista è presente qualche elemento oppure e vuota -->
+            {% if lista %} 
         <ul>
-            {% for elemento in lista_spesa %}<!--utilizziamo il for per stampare tutti gli elemtenti presenti nella lista-->
-                <li style="font-size: 40px; margin-left: 10px;">{{ elemento }}
-                    <form action="/rimuovi/{{ loop.index0 }}" method="post" style="display:inline; margin: 0px;">
+            {% for elemento in lista %}
+                <li style="font-size: 40px; margin-left: 10px;">{{ elemento.elemento }}
+                    <form action="/rimuovi/{{elemento.id}}" method="post" style="display:inline; margin: 0px;">
                         <button class="btn btn-danger" type="submit">Rimuovi</button>
                     </form>
                 </li>
